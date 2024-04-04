@@ -6,7 +6,7 @@ const Home = () => {
       <header className={styles.header}>
         <div className={styles.headerTop}>
           <div className={styles.headerTopLeft}>
-              <div className={styles.headerLeftTitle}>Seja bem vindo! (a)</div>
+              <div className={styles.headerLeftTitle}>Seja bem vindo! (a) 👋</div>
               <div className={styles.headerLeftSubtitle}>O que voce deseja hoje</div>
           </div>
           <div className={styles.headerTopright}>
