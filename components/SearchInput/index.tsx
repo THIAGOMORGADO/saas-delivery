@@ -14,6 +14,7 @@ export const SearchInput = ({ mainColor, onSearch,  } : Props) => {
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if(event.code === 'Enter') {
       onSearch(searchValue)
+      setSearchValue('')
     }
   }
 
@@ -26,7 +27,7 @@ export const SearchInput = ({ mainColor, onSearch,  } : Props) => {
         className={styles.button}
         onClick={() => onSearch(searchValue)}  
       >
-
+        
       </div>
       <input 
         type="text" 
