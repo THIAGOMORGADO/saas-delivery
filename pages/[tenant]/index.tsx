@@ -54,8 +54,7 @@ const Home = (data: Props) => {
             name: 'X-tudo',
             price: '25.00',
           }} 
-          mainColor={data.tenant.mainColor} 
-          secondyColor={data.tenant.secondyColot}
+          
         />  
         <ProductItems data={{
             id:2,
@@ -64,8 +63,7 @@ const Home = (data: Props) => {
             name: 'X-salada',
             price: '39.00',
           }} 
-          mainColor={data.tenant.mainColor} 
-          secondyColor={data.tenant.secondyColot}
+          
         /> 
         <ProductItems data={{
           id:3,
@@ -74,8 +72,7 @@ const Home = (data: Props) => {
             name: 'X-tudo-bacon',
             price: '35.00',
           }}  
-          mainColor={data.tenant.mainColor} 
-          secondyColor={data.tenant.secondyColot} 
+           
         /> 
         <ProductItems data={{
             id:4,
@@ -84,8 +81,7 @@ const Home = (data: Props) => {
             name: 'X-bacon-ovo',
             price: '40.00',
           }} 
-          mainColor={data.tenant.mainColor} 
-          secondyColor={data.tenant.secondyColot}
+          
         /> 
         <ProductItems data={{
             id:5,
@@ -94,8 +90,7 @@ const Home = (data: Props) => {
             name: 'X-da-casa-mostro',
             price: '50.00',
           }}
-          mainColor={data.tenant.mainColor} 
-          secondyColor={data.tenant.secondyColot}
+          
         /> 
         <ProductItems data={{
             id:5,
@@ -104,8 +99,7 @@ const Home = (data: Props) => {
             name: 'X-vegano',
             price: '10.00',
           }} 
-          mainColor={data.tenant.mainColor} 
-          secondyColor={data.tenant.secondyColot}
+          
         /> 
       </div>
 

@@ -33,6 +33,14 @@ export const useApi = () => ({
             secondyColot: "#00fff0"
           }
           break;
+          case 'adega-luiz':
+            return {
+              slug: 'maria-coffer',
+              name: 'B7Pizza',
+              mainColor: "#000",
+              secondyColot: "#fff"
+            }
+            break;
 
         default: return false;
     }
