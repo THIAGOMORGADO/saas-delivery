@@ -2,12 +2,20 @@
 import { Banner } from '@/components/Banner';
 import { SearchInput } from '@/components/SearchInput';
 import { ProductItems } from '@/components/productItems';
-import { getTenantResponse, useApi } from '@/libs/useApi';
+import { useAppContext } from '@/contexts/AppContext';
+import { useApi } from '@/libs/useApi';
 
 import styles from '@/styles/Home.module.css'
+import { Tenant } from '@/types/Tenant';
 import { GetServerSideProps } from 'next';
+import { useEffect } from 'react';
 
 const Home = (data: Props) => {
+  const {tenant, setTenant} = useAppContext();
+
+  useEffect(() => {
+    setTenant(data.tenant)
+  }, [])
 
   const handleSearch = (searchValue: string) => {
     console.log(`Voce esta bucando..., ${searchValue}`)
@@ -22,9 +30,9 @@ const Home = (data: Props) => {
           </div>
           <div className={styles.headerTopright}>
               <div className={styles.menuButton}>
-                <div className={styles.menuButtonLine} style={{backgroundColor: data.tenant.mainColor}}></div> 
-                <div className={styles.menuButtonLine} style={{backgroundColor: data.tenant.mainColor}}></div> 
-                <div className={styles.menuButtonLine} style={{backgroundColor: data.tenant.mainColor}}></div>  
+                <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div> 
+                <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div> 
+                <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div>  
               </div> 
           </div>
         </div>
@@ -108,7 +116,7 @@ const Home = (data: Props) => {
 export default Home;
 
 type Props = {
-  tenant: getTenantResponse
+  tenant: Tenant;
 }
 
 // Criando o server side redering do tenant
