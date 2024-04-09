@@ -13,7 +13,7 @@ const Tmp_product: Product = {
 }
 
 export const useApi = (tenantSlug: string) => ({
-  getTenant: (): boolean | Tenant => {
+  getTenant: async () => {
     switch (tenantSlug) {
       // Lista de cliente cadastrados
       case 'maria-pizza':
@@ -55,7 +55,7 @@ export const useApi = (tenantSlug: string) => ({
   },
   
   // Lista de produtos cadastrados
-  getAllProducts:() => {
+  getAllProducts: async () => {
     let products = [];
     for(let q = 0; q  < 10; q++) {
       products.push(Tmp_product); 
@@ -63,7 +63,7 @@ export const useApi = (tenantSlug: string) => ({
     return products;
   },
   // Lista por um produtos cadastrado
-  getProducts: (id: string) => {
+  getProducts: async (id: string) => {
     return Tmp_product;
   }
 
