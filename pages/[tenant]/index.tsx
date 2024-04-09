@@ -9,7 +9,7 @@ import styles from '@/styles/Home.module.css'
 import { Product } from '@/types/Products';
 import { Tenant } from '@/types/Tenant';
 import { GetServerSideProps } from 'next';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home = (data: Props) => {
   const {tenant, setTenant} = useAppContext();
@@ -20,7 +20,7 @@ const Home = (data: Props) => {
     setTenant(data.tenant)
   }, [])
 
-  const [products, setProducts] =  useState(data.products)
+  const [products, setProducts] =  useState<Product[]>(data.products)
 
   const handleSearch = (searchValue: string) => {
     console.log(`Voce esta bucando..., ${searchValue}`)
