@@ -5,7 +5,7 @@ import { InputField } from '@/components/InputField';
 import { useAppContext } from '@/contexts/AppContext';
 import { useApi } from '@/libs/useApi';
 
-import styles from '@/styles/SignUp.module.css'
+import styles from '@/styles/SignIn.module.css'
 import { Tenant } from '@/types/Tenant';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
@@ -15,8 +15,6 @@ import { useEffect, useState } from 'react';
 
 const SignUp = (data: Props) => {
   const {tenant, setTenant} = useAppContext();
-
-  const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -42,7 +40,7 @@ const SignUp = (data: Props) => {
         </Head>
         <Header 
           color={data?.tenant.mainColor} 
-          backHref={`/${data?.tenant.slug}/login`} 
+          backHref={`/${data?.tenant.slug}`} 
         /> 
 
           <div className={styles.header}>
@@ -52,22 +50,12 @@ const SignUp = (data: Props) => {
 
 
           <div className={styles.subtitle} style={{borderBottomColor: data.tenant.mainColor}}>
-            Preencha os campos para criar seu cadastros.
+            Use suas credenciais para realizar o login !
           </div>
 
           <div className={styles.line}></div>
 
           <div className={styles.formArea}>
-
-            <div className={styles.inputArea}>
-              <InputField 
-                color={data.tenant.mainColor}
-                placeholder='Digite seu nome'
-                value={name}
-                onChange={setName}
-              />
-            </div>
-
             <div className={styles.inputArea}>
               <InputField 
                 color={data.tenant.mainColor}
@@ -91,7 +79,7 @@ const SignUp = (data: Props) => {
             <div className={styles.inputArea}>
               <Button 
                 color={data.tenant.mainColor}
-                label="Cadastra"
+                label="Entra"
                 onClick={handleSubmit}
                 fill
 
@@ -101,13 +89,27 @@ const SignUp = (data: Props) => {
           </div>
 
           <div className={styles.forgetArea} style={{borderBottomColor: data.tenant.mainColor}}>
-            Ja tem cadastro? 
+            Esqueceu sua senha? 
             <Link 
-            className={styles.conteForget}
-            href={`/${data.tenant.slug}/login`}>
-              <span style={{color: data.tenant.mainColor}}> Fazer login</span>
+            className={styles.conteForget} 
+            style={{color: data.tenant.mainColor}} 
+            href={`/${data.tenant.slug}/forget`}>
+
+              <span> Clique aqui</span>
             </Link>
           </div>
+
+          <div className={styles.line}></div>
+
+          <div className={styles.signupArea}>
+          <Button 
+            color={data.tenant.mainColor}
+            label=" Quero me cadastra"
+            onClick={handleSignUp}
+            
+          />
+        </div>
+        
     </div>
   )
 }
