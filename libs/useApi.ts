@@ -18,7 +18,7 @@ export const useApi = (tenantSlug: string) => ({
       // Lista de cliente cadastrados
       case 'maria-pizza':
         return {
-          slug: 'maria-burge',
+          slug: 'maria-pizza',
           name: 'maria-pizza',
           mainColor: "#ff0000",
           secondyColot: "#00ff00",
@@ -43,7 +43,7 @@ export const useApi = (tenantSlug: string) => ({
           break;
           case 'adega-luiz':
             return {
-              slug: 'adega-do-luiz',
+              slug: 'adega-luiz',
               name: 'adega-luiz',
               mainColor: "#000",
               secondyColot: "#fff"
