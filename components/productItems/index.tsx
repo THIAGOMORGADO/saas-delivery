@@ -20,7 +20,7 @@ export const ProductItems = ({ data }: Props) => {
   return (
     <Link href={`/${tenant?.slug}/product/${data.id}`} className={styles.link}>
       <div className={styles.container}>
-        <div className={styles.head} style={{ backgroundColor: tenant?.secondyColot}}>
+        <div className={styles.head} style={{ backgroundColor: tenant?.mainColor}}>
       </div>
         <div className={styles.info}>
           <div className={styles.img}>
