@@ -1,54 +1,82 @@
 .container {
   background-color: #fff;
+
 }
-.header {
-  background-color: #f9f9fb;
-  padding: 50px 24px 30px 24px;
+.headerArea {
+  position: absolute;
+  
+  left: 24px;
+  top: 64px;
+  right: 24px;
+
 }
-.headerTop{
+.headerBg {
+  height: 350px;
+  background-color: #333;
+  background-image: url('/assets/productsBg.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  
+}
+.productImg {
+  text-align: center;
+  margin-top: -250px;
+}
+.productImg img {
+  width: auto;
+  height: 350px;
+}
+.category {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1b1b1b;
+  margin: 0 24px
+}
+.title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  color: #1b1b1b;
+  margin: 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1.5px solid #000;
+  width: fit-content;
+  position: relative;
+}
+.line {
+  border-top: 1.5px solid #e2e2e2;
+  margin: 1.5px 24 0 24px;
+}
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(27, 27, 27, .5);
+  margin: 24px;
+}
+.qtText {
+  color: #1b1b1b;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 24px 16px 24px;
+}
+.Area {
+  margin: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 27px;
 }
-
-.headerTopLeft {
-
+.areaLeft {
+  font-weight: 600;
+  font-size: 40px;
 }
-.headerLeftTitle{
-  font-size: 24px;
-  font-weight: 500;
-  color: #1b1b1b;
-  margin-bottom: 8px;
+.areaRight {
+  flex: 1;
+  text-align: right;
+  font-weight: 600;
+  font-size: 40px;
+  color: #000;
 }
-.headerLeftSubtitle {
-  font-weight: 400;
-  font-size: 16px;
-  color: rgba(151, 151,151, 0.8);
-}
-.headerTopright {
-  
-}
-
-.menuButton{
-  width: 18px;
-  height: 16px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.menuButtonLine {
-  background-color: #000;
-  height: 2px;
-}
-.headerBottom {
-
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin: 0px 24px 0px 24px;
+.buttonArea {
+  margin: 50px 24px;
 }

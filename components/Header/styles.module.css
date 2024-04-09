@@ -10,6 +10,21 @@
   align-items: center;
   
 }
+.leftSide span, 
+.rightSide span {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 5px;
+
+}
+.buttonTransparent {
+  background-color: rgba(0,0,0, .1);
+}
+
 .centerSide {
   flex: 1;
   display: flex;
@@ -19,7 +34,7 @@
 }
 .title {
   font-size: 24px;
-  font-size: 600;
+  font-weight: 600;
   color: '#1b1b1b';
 }
 .subtitle {

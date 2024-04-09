@@ -1,6 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { Button } from '@/components/Button';
+import { Header } from '@/components/Header';
+import { Quantity } from '@/components/Quantuty';
 import { useAppContext } from '@/contexts/AppContext';
 import { useApi } from '@/libs/useApi';
+import { useFormated } from '@/libs/useFormated';
 
 import styles from '@/styles/ProductId.module.css'
 import { Product } from '@/types/Products';
@@ -10,12 +14,21 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 const Products = (data: Props) => {
+  const [countQt, setCountQt] = useState(1);
   const {tenant, setTenant} = useAppContext();
+  const formatted = useFormated();
 
   useEffect(() => {
     setTenant(data.tenant)
   }, [])
 
+
+  function handleAddToCart() {
+
+  }
+  function handleCountQt(newCount: number) {
+    setCountQt(newCount)
+  }
 
   return(
     <div className={styles.container} >
@@ -23,10 +36,68 @@ const Products = (data: Props) => {
         <title>{data.product.name} | {data.tenant.name}</title>
       </Head>
 
-      
 
+      <div className={styles.headerArea}>
+        <Header 
+          color={data.tenant.mainColor}
+          backHref={`/${data.tenant.slug}`}
+          title='Produto'
+          invert
+        />
+        </div>
 
-    </div>
+        <div className={styles.headerBg} style={{backgroundColor: data.tenant.mainColor}}></div>
+
+        <div className={styles.productImg}>
+          <img src={data.product.image} alt={data.product.name} />
+        </div>
+
+        <div className={styles.category}>
+          {data.product.categoryName}
+        </div>
+
+        <div className={styles.title} style={{borderBottomColor: data.tenant.mainColor}}>
+          {data.product.name}
+        </div>
+        <div className={styles.line}></div>
+        <div className={styles.description}>{data.product.description}</div>
+
+         <div className={styles.qtText}>Quatidade</div> 
+
+          <div className={styles.Area}>
+            <div className={styles.areaLerft}>
+              <Quantity 
+                color={data.tenant.mainColor}
+                count={countQt}
+                onUpdateCount={handleCountQt}
+                min={1}
+                
+              />
+            </div>
+            <div 
+              className={styles.areaRight}
+              style={{
+                color: data.tenant.mainColor
+              }}  
+            >
+            {
+              formatted.formatedPrice
+              (
+              data.product.price
+              )
+            }</div>
+          </div>
+
+        <div className={styles.buttonArea}>
+          <Button 
+            color={data.tenant.mainColor}
+            label="Adicionar a sacola"
+            onClick={handleAddToCart}
+            fill
+
+          />
+        </div>
+      </div>
   )
 }
 

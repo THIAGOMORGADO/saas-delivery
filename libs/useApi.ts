@@ -7,9 +7,9 @@ const Tmp_product: Product = {
   id: 1,
   image: '/tmp/Burger.png',
   categoryName: 'tradicional',
-  name: 'X-bacon-ovo',
+  name: 'Golden Burger',
   price: 40.00,
-  description: 'Lanche do bom '
+  description: '2 Blends de carne de 150g, Queijo Cheddar,Bacon Caramelizado, Salada, Molho da casa, Pão brioche artesanal'
 }
 
 export const useApi = (tenantSlug: string) => ({
