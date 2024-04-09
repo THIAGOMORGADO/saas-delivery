@@ -23,7 +23,7 @@ export const ProductItems = ({ data }: Props) => {
           </div>
           <div className={styles.catName}>{data.categoryName}</div>
           <div className={styles.name}>{data.name}</div>
-          <div className={styles.price} style={{ color: tenant?.mainColor }}>R$ {data.price}</div>
+          <div className={styles.price} style={{ color: tenant?.mainColor }}>R$ {data.price.toFixed(2)}</div>
 
         </div>
       </div>
