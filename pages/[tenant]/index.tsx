@@ -52,6 +52,8 @@ const Home = (data: Props) => {
       
 
       <div className={styles.grid}>
+          {products}
+
         <ProductItems data={{
             id:1,
             image: '/tmp/Burger.png',
