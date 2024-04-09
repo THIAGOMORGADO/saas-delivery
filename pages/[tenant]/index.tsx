@@ -6,6 +6,7 @@ import { useAppContext } from '@/contexts/AppContext';
 import { useApi } from '@/libs/useApi';
 
 import styles from '@/styles/Home.module.css'
+import { Product } from '@/types/Products';
 import { Tenant } from '@/types/Tenant';
 import { GetServerSideProps } from 'next';
 import { useEffect } from 'react';
@@ -13,9 +14,13 @@ import { useEffect } from 'react';
 const Home = (data: Props) => {
   const {tenant, setTenant} = useAppContext();
 
+
+
   useEffect(() => {
     setTenant(data.tenant)
   }, [])
+
+  const [products, setProducts] =  useState(data.products)
 
   const handleSearch = (searchValue: string) => {
     console.log(`Voce esta bucando..., ${searchValue}`)
@@ -111,15 +116,16 @@ export default Home;
 
 type Props = {
   tenant: Tenant;
+  products: Product[];
 }
 
 // Criando o server side redering do tenant
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const {tenant: tenantSlug} = context.query;
-  const api = useApi();
+  const api = useApi(tenantSlug as string);
 
  // get Tenant
-    const tenant = await api.getTenant(tenantSlug as string);
+    const tenant = await api.getTenant();
     if(!tenant) {
      
       return {
@@ -129,10 +135,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
       }
     }
-  
+    // Get Products
+    const products = await api.getAllProducts();
+
+
   return{
     props:{
-      tenant
+      tenant,
+      products
     }
   }
 }

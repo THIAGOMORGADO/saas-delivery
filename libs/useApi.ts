@@ -1,15 +1,21 @@
 // Criando Hook
 
+import { Product } from "@/types/Products";
 import { Tenant } from "@/types/Tenant";
 
+const Tmp_product: Product = {
+  id: 1,
+  image: '/tmp/Burger.png',
+  categoryName: 'tradicional',
+  name: 'X-bacon-ovo',
+  price: 40.00,
+  description: 'Lanche do bom '
+}
 
-
-export const useApi = () => ({
-  getTenant: (tenantSlug: string): boolean | Tenant => {
+export const useApi = (tenantSlug: string) => ({
+  getTenant: (): boolean | Tenant => {
     switch (tenantSlug) {
       // Lista de cliente cadastrados
-      
-
       case 'maria-pizza':
         return {
           slug: 'maria-burge',
@@ -17,10 +23,8 @@ export const useApi = () => ({
           mainColor: "#ff0000",
           secondyColot: "#00ff00",
           backColor: '#000'
-
         }
       break;
-
       case 'maria-burger':
         return {
           slug: 'maria-burger',
@@ -29,7 +33,6 @@ export const useApi = () => ({
           secondyColot: "#333"
         }
         break;
-
         case 'maria-coffer':
           return {
             slug: 'maria-coffer',
@@ -49,8 +52,19 @@ export const useApi = () => ({
 
         default: return false;
     }
-
-
-    
+  },
+  
+  // Lista de produtos cadastrados
+  getAllProducts:() => {
+    let products = [];
+    for(let q = 0; q  < 10; q++) {
+      products.push(Tmp_product); 
+    }
+    return products;
+  },
+  // Lista por um produtos cadastrado
+  getProducts: (id: string) => {
+    return Tmp_product;
   }
+
 })

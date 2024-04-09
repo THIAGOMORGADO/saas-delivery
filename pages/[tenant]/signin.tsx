@@ -5,7 +5,7 @@ import { InputField } from '@/components/InputField';
 import { useAppContext } from '@/contexts/AppContext';
 import { useApi } from '@/libs/useApi';
 
-import styles from '@/styles/SignIn.module.css'
+import styles from '@/styles/SignUp.module.css'
 import { Tenant } from '@/types/Tenant';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
