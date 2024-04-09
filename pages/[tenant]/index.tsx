@@ -21,7 +21,7 @@ const Home = (data: Props) => {
     console.log(`Voce esta bucando..., ${searchValue}`)
   }
   return(
-    <div className={styles.container}>
+    <div className={styles.container} >
       <header className={styles.header}>
         <div className={styles.headerTop}>
           <div className={styles.headerTopLeft}>

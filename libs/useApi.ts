@@ -7,19 +7,24 @@ import { Tenant } from "@/types/Tenant";
 export const useApi = () => ({
   getTenant: (tenantSlug: string): boolean | Tenant => {
     switch (tenantSlug) {
+      // Lista de cliente cadastrados
+      
+
       case 'maria-pizza':
         return {
           slug: 'maria-burge',
-          name: 'B7Burger',
+          name: 'maria-pizza',
           mainColor: "#ff0000",
-          secondyColot: "#00ff00"
+          secondyColot: "#00ff00",
+          backColor: '#000'
+
         }
       break;
 
       case 'maria-burger':
         return {
-          slug: 'maria-pizza',
-          name: 'B7Pizza',
+          slug: 'maria-burger',
+          name: 'maria-burger',
           mainColor: "#0000ff",
           secondyColot: "#333"
         }
@@ -28,15 +33,15 @@ export const useApi = () => ({
         case 'maria-coffer':
           return {
             slug: 'maria-coffer',
-            name: 'B7Pizza',
-            mainColor: "#ff0",
+            name: 'maria coffer',
+            mainColor: "#daa520",
             secondyColot: "#00fff0"
           }
           break;
           case 'adega-luiz':
             return {
-              slug: 'maria-coffer',
-              name: 'B7Pizza',
+              slug: 'adega-do-luiz',
+              name: 'adega-luiz',
               mainColor: "#000",
               secondyColot: "#fff"
             }

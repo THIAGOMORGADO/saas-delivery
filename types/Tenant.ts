@@ -3,4 +3,5 @@ export type Tenant = {
   name: string;
   mainColor: string;
   secondyColot: string;
+  backColor?: string;
 }
