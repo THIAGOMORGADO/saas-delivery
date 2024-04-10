@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Banner } from '@/components/Banner';
 import { SearchInput } from '@/components/SearchInput';
+import { SideBar } from '@/components/SideBar'
 import { ProductItems } from '@/components/productItems';
 import { useAppContext } from '@/contexts/app';
 
@@ -13,11 +14,10 @@ import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 
 const Home = (data: Props) => {
+  const [openSideBar, setOpenSideBar] = useState(false)
   const {tenant, setTenant} = useAppContext();
- 
 
-
-
+  
   useEffect(() => {
     setTenant(data.tenant)
   }, [])
@@ -36,11 +36,21 @@ const Home = (data: Props) => {
               <div className={styles.headerLeftSubtitle}>O que voce deseja hoje</div>
           </div>
           <div className={styles.headerTopright}>
-              <div className={styles.menuButton}>
+              <div 
+                className={styles.menuButton}
+                onClick={() => setOpenSideBar(true)}
+              >
                 <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div> 
                 <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div> 
                 <div className={styles.menuButtonLine} style={{backgroundColor: tenant?.mainColor}}></div>  
               </div> 
+            {/** Menu Slide */}
+            
+            <SideBar 
+              tenant={data.tenant}
+              open={openSideBar}
+              onClose={() => setOpenSideBar(false)}
+            />
           </div>
         </div>
         <div className={styles.headerBottom}>
@@ -51,8 +61,6 @@ const Home = (data: Props) => {
         </div>
       </header>
         <Banner />
-      
-
       <div className={styles.grid}>
           {products.map((item, index) => (
             <ProductItems  key={index} data={item}/>

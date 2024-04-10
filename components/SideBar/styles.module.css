@@ -1,0 +1,66 @@
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0vw;
+  background-color: #fff;
+  z-index: 99;
+  transition: all ease .5s;
+  overflow-x: hidden;
+}
+.area {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 78px 24px 0 24px;
+  position: relative;
+}
+.header .loginArea {
+  border-bottom: 1.5px solid #000;
+  margin-left: 42px;
+  padding-bottom: 48px;
+  min-width: 230px;
+}
+.header .userInfo {
+  font-size: 16px;
+  font-weight: 400;
+  color: #96a3ab
+}
+.header .userInfo strong {
+  font-weight: 500;
+  font-size: 24px;
+  color: #1b1b1b;
+  display: block;
+  margin-bottom: 8px;
+}
+.line {
+  margin: 0 24px;
+  border-bottom: 1.5px solid #e2e2e2;
+  margin-top: -1.5px;
+}
+.header .closeBtn { 
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  font-size: 22px;
+}
+.menu {
+  flex: 1;
+  
+  padding: 25px 66px;
+  display: flex;
+  flex-direction: column;
+}
+.menuBottom {
+  padding: 25px 66px;
+  display: flex;
+  flex-direction: column;
+}
