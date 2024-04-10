@@ -4,7 +4,7 @@
 import { Product } from '@/types/Products'
 import styles from './styles.module.css'
 import Link from 'next/link';
-import { useAppContext } from '@/contexts/AppContext';
+import { useAppContext } from '@/contexts/app';
 import { useFormated } from '@/libs/useFormated';
 
 

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
-import { useAppContext } from '@/contexts/AppContext';
+import { useAppContext } from '@/contexts/app';
 import { useApi } from '@/libs/useApi';
 
 import styles from '../../styles/ForgetSuccess.module.css'

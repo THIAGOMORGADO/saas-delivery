@@ -2,7 +2,7 @@
 import { Banner } from '@/components/Banner';
 import { SearchInput } from '@/components/SearchInput';
 import { ProductItems } from '@/components/productItems';
-import { useAppContext } from '@/contexts/AppContext';
+import { useAppContext } from '@/contexts/app';
 import { useApi } from '@/libs/useApi';
 
 import styles from '@/styles/Home.module.css'
