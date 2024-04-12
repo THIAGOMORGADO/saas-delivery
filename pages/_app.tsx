@@ -8,7 +8,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <AuthContextProvider>  
       <AppContextProvider>
+          
         <Component {...pageProps} />
+        
       </AppContextProvider>
     </AuthContextProvider>
   );

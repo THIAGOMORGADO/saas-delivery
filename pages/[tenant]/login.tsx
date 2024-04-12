@@ -3,32 +3,43 @@ import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
 import { InputField } from '@/components/InputField';
 import { useAppContext } from '@/contexts/app';
+import { useAuthContext } from '@/contexts/auth';
 import { useApi } from '@/libs/useApi';
 
 import styles from '@/styles/login.module.css'
 import { Tenant } from '@/types/Tenant';
 import { GetServerSideProps } from 'next';
+
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import { useEffect, useState } from 'react';
 
 const Login = (data: Props) => {
+  const { setToken, setUser, user} = useAuthContext();
   const {tenant, setTenant} = useAppContext();
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-
-
   useEffect(() => {
     setTenant(data.tenant)
   }, [])
 
+ 
   const router = useRouter();
 
   const handleSubmit = () => {
-    alert("pk")
-  }
+    setToken('1234');
+    setUser({
+   
+      name: '<NAME>',
+      email: '<EMAIL>',
+      
+    })
+    router.push(`/${data.tenant.slug}`);
+    console.log(user)
+}
   const handleSignUp = () => {
     router.push(`/${data.tenant.slug}/signup`)
   }

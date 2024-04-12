@@ -3,7 +3,7 @@ import { Button } from '../Button'
 import styles from './styles.module.css'
 import { Tenant } from '@/types/Tenant'
 import { SideBarItem } from '../SIdeBarItem'
-import { useRef } from 'react'
+
 import { useRouter } from 'next/router'
 
 type Props =  {
@@ -16,7 +16,7 @@ export const SideBar = ({tenant, open, onClose} : Props) => {
   const {user, setToken} = useAuthContext();
 
   const router = useRouter();
-
+ 
   return(
     <div 
       className={styles.container}
@@ -30,22 +30,22 @@ export const SideBar = ({tenant, open, onClose} : Props) => {
             className={styles.loginArea}
             style={{borderBottomColor: tenant.mainColor}}
           >
-            {
-              user && 
-              <div className={styles.userInfo}>
-                <strong>{user.name}</strong>
-                Ultimo pedido a X semanas
-              </div>
-            }
-            {
-              !user && 
-              <Button 
-                color={tenant.mainColor}
-                label="Fazer login"
-                onClick={() => router.push(`/${tenant.slug}/login`)}
-                fill
-              />
-            }
+              {
+              user &&
+                  <div className={styles.userInfo}>
+                    <strong>{user.name}</strong>
+                    Último pedido há X semanas
+                  </div>
+                }
+              {
+                !user &&
+                <Button
+                  color={tenant.mainColor}
+                  label="Fazer Login"
+                  onClick={() => router.push(`/${tenant.slug}/login`)}
+                  fill
+                />
+              }
           </div>
           <div 
             className={styles.closeBtn}
@@ -82,7 +82,7 @@ export const SideBar = ({tenant, open, onClose} : Props) => {
             color={'#6a7d8b'}
             icon='order'
             label='Meus pedidos'
-            onClick={() => router.push(`/${tenant.slug}/pedidos`)}
+            onClick={() => router.push(`/${tenant.slug}/orders`)}
             
           />
           <SideBarItem 
