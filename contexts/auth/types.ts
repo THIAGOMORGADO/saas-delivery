@@ -3,22 +3,21 @@ import { User } from "@/types/User";
 import { Dispatch, ReactNode } from "react";
 
 export type DataType = {
-  token:string;
-  user: User | null;
+  token: string;
+  user: User | null; 
 }
 
 export type ActionType = {
-    type: Actions;
-    payload?: any
-}
+  type: Actions;
+  payload?: any;
 
-export type ContextType ={
-    state:DataType;
-    dispatch: Dispatch<ActionType>;
 }
-
+export type ContextType = {
+  state: DataType;
+  dispatch: Dispatch<ActionType>
+}
 export type ProviderType = {
-    children: ReactNode 
+  children: ReactNode;
 }
 
 export enum Actions {
